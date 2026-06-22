@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Forge — Free QR Code Generator | Create Beautiful QR Codes Instantly</title>
+  <meta name="description"
+    content="Generate beautiful, customizable QR codes for URLs, WiFi, vCards, email, phone, SMS, and plain text. Free, fast, and works entirely in your browser.">
+  <meta name="keywords" content="QR code generator, free QR code, QR maker, WiFi QR, vCard QR, custom QR code">
+  <meta property="og:title" content="QR Forge — Free QR Code Generator">
+  <meta property="og:description"
+    content="Create beautiful, customizable QR codes instantly. Supports URLs, WiFi, vCards, email, phone & more.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#8B5CF6">
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238B5CF6'/%3E%3Crect x='6' y='6' width='8' height='8' rx='1' fill='white'/%3E%3Crect x='18' y='6' width='8' height='8' rx='1' fill='white'/%3E%3Crect x='6' y='18' width='8' height='8' rx='1' fill='white'/%3E%3Crect x='20' y='20' width='4' height='4' rx='1' fill='white'/%3E%3C/svg%3E">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Animated Background Orbs -->
+  <div class="ambient-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="17" y="17" width="4" height="4" rx="1" />
+            <line x1="14" y1="14" x2="14" y2="17" />
+            <line x1="14" y1="14" x2="17" y2="14" />
+          </svg>
+        </div>
+        <h1>QR Forge</h1>
+      </div>
+      <p class="tagline">Generate beautiful, customizable QR codes instantly — free forever.</p>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main">
+    <div class="container generator-layout">
+
+      <!-- ===== INPUT PANEL ===== -->
+      <section class="panel input-panel glass-card" id="input-panel">
+        <h2 class="panel-title">Create Your QR Code</h2>
+
+        <!-- Tabs -->
+        <div class="tabs" id="tabs">
+          <button class="tab active" data-type="url" id="tab-btn-url">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+            URL
+          </button>
+          <button class="tab" data-type="text" id="tab-btn-text">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+            Text
+          </button>
+          <button class="tab" data-type="wifi" id="tab-btn-wifi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+              <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+              <circle cx="12" cy="20" r="1" />
+            </svg>
+            WiFi
+          </button>
+          <button class="tab" data-type="vcard" id="tab-btn-vcard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            vCard
+          </button>
+          <button class="tab" data-type="email" id="tab-btn-email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            Email
+          </button>
+          <button class="tab" data-type="phone" id="tab-btn-phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            Phone
+          </button>
+          <button class="tab" data-type="sms" id="tab-btn-sms">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            SMS
+          </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tab-contents" id="tab-contents">
+
+          <!-- URL Tab -->
+          <div class="tab-content active" id="content-url">
+            <div class="form-group">
+              <label for="input-url">Website URL</label>
+              <input type="url" id="input-url" placeholder="https://example.com" autocomplete="off">
+            </div>
+          </div>
+
+          <!-- Text Tab -->
+          <div class="tab-content" id="content-text">
+            <div class="form-group">
+              <label for="input-text">Your Text</label>
+              <textarea id="input-text" placeholder="Enter any text you want to encode..." rows="4"></textarea>
+            </div>
+          </div>
+
+          <!-- WiFi Tab -->
+          <div class="tab-content" id="content-wifi">
+            <div class="form-group">
+              <label for="wifi-ssid">Network Name (SSID)</label>
+              <input type="text" id="wifi-ssid" placeholder="MyWiFiNetwork" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="wifi-password">Password</label>
+              <input type="text" id="wifi-password" placeholder="Enter password" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="wifi-encryption">Encryption</label>
+              <select id="wifi-encryption">
+                <option value="WPA">WPA / WPA2</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">None (Open)</option>
+              </select>
+            </div>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="wifi-hidden">
+              <label for="wifi-hidden">Hidden Network</label>
+            </div>
+          </div>
+
+          <!-- vCard Tab -->
+          <div class="tab-content" id="content-vcard">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="vcard-fname">First Name</label>
+                <input type="text" id="vcard-fname" placeholder="John" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="vcard-lname">Last Name</label>
+                <input type="text" id="vcard-lname" placeholder="Doe" autocomplete="off">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="vcard-phone">Phone</label>
+              <input type="tel" id="vcard-phone" placeholder="+91 98765 43210" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="vcard-email">Email</label>
+              <input type="email" id="vcard-email" placeholder="john@example.com" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="vcard-org">Organization</label>
+              <input type="text" id="vcard-org" placeholder="Company Name" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="vcard-url">Website</label>
+              <input type="url" id="vcard-url" placeholder="https://example.com" autocomplete="off">
+            </div>
+          </div>
+
+          <!-- Email Tab -->
+          <div class="tab-content" id="content-email">
+            <div class="form-group">
+              <label for="email-address">Email Address</label>
+              <input type="email" id="email-address" placeholder="hello@example.com" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="email-subject">Subject</label>
+              <input type="text" id="email-subject" placeholder="Subject line" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="email-body">Body</label>
+              <textarea id="email-body" placeholder="Email body..." rows="3"></textarea>
+            </div>
+          </div>
+
+          <!-- Phone Tab -->
+          <div class="tab-content" id="content-phone">
+            <div class="form-group">
+              <label for="phone-number">Phone Number</label>
+              <input type="tel" id="phone-number" placeholder="+91 98765 43210" autocomplete="off">
+            </div>
+          </div>
+
+          <!-- SMS Tab -->
+          <div class="tab-content" id="content-sms">
+            <div class="form-group">
+              <label for="sms-number">Phone Number</label>
+              <input type="tel" id="sms-number" placeholder="+91 98765 43210" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="sms-message">Message</label>
+              <textarea id="sms-message" placeholder="Your message..." rows="3"></textarea>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Customization Options -->
+        <div class="customization">
+          <h3 class="section-title">Customize Appearance</h3>
+          <div class="customize-grid">
+            <div class="form-group">
+              <label for="fg-color">Foreground</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="fg-color" value="#000000">
+                <span class="color-value" id="fg-color-value">#000000</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="bg-color">Background</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="bg-color" value="#FFFFFF">
+                <span class="color-value" id="bg-color-value">#FFFFFF</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="dot-style">Dot Style</label>
+              <select id="dot-style">
+                <option value="square">Square</option>
+                <option value="rounded" selected>Rounded</option>
+                <option value="dots">Dots</option>
+                <option value="classy-rounded">Classy</option>
+                <option value="extra-rounded">Extra Rounded</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="corner-style">Corner Style</label>
+              <select id="corner-style">
+                <option value="square">Square</option>
+                <option value="extra-rounded" selected>Rounded</option>
+                <option value="dot">Dot</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="qr-size">Size: <span id="size-value">300</span>px</label>
+            <input type="range" id="qr-size" min="200" max="600" value="300" step="50">
+          </div>
+          <div class="form-group">
+            <label for="ec-level">Error Correction</label>
+            <select id="ec-level">
+              <option value="L">Low (7% recovery)</option>
+              <option value="M" selected>Medium (15% recovery)</option>
+              <option value="Q">Quartile (25% recovery)</option>
+              <option value="H">High (30% recovery)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Generate Button -->
+        <button id="generate-btn" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+          <span>Generate QR Code</span>
+        </button>
+      </section>
+
+      <!-- ===== PREVIEW PANEL ===== -->
+      <section class="panel preview-panel glass-card" id="preview-panel">
+        <h2 class="panel-title">Preview</h2>
+
+        <!-- QR Code Display -->
+        <div id="qr-preview" class="qr-preview">
+          <div class="qr-placeholder" id="qr-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="17" y="17" width="4" height="4" rx="1" />
+              <line x1="14" y1="14" x2="14" y2="17" />
+              <line x1="14" y1="14" x2="17" y2="14" />
+            </svg>
+            <p>Your QR code will appear here</p>
+          </div>
+        </div>
+
+        <!-- Encoded Data Info -->
+        <div class="data-info" id="data-info">
+          <strong>Encoded: </strong><span id="data-info-text"></span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="qr-actions" id="qr-actions" style="display: none;">
+          <button id="download-png" class="btn btn-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            PNG
+          </button>
+          <button id="download-svg" class="btn btn-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            SVG
+          </button>
+          <button id="copy-btn" class="btn btn-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            Copy
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <!-- MANDATORY: "Built for Digital Heroes" button -->
+      <a href="https://digitalheroesco.com" target="_blank" rel="noopener noreferrer" class="dh-button" id="dh-button">
+        Built for Digital Heroes
+      </a>
+
+      <!-- MANDATORY: Creator name and email -->
+      <div class="creator-info">
+        <!-- ⚠️  UPDATE THESE WITH YOUR REAL NAME AND EMAIL ⚠️ -->
+        <p class="creator-name" id="creator-name">Abhishek Kumar Dutta</p>
+        <p class="creator-email"><a href="mailto:work.abhi06@outlook.com" id="creator-email">work.abhi06@outlook.com</a>
+        </p>
+      </div>
+
+      <p class="copyright">&copy; 2026 QR Forge. Free &amp; open-source.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- QR Code Styling Library (CDN) -->
+  <script src="https://unpkg.com/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+
+  <!-- App Logic -->
+  <script src="app.js"></script>
+</body>
+
+</html>
