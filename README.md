@@ -39,14 +39,6 @@
 └── README.md       # This file
 ```
 
-## 🚀 Quick Start
-
-1. Clone this repository
-2. Open `index.html` in any modern browser — it works offline!
-3. Or deploy to Vercel:
-   - Connect your GitHub repo to [Vercel](https://vercel.com)
-   - It auto-deploys as a static site — done!
-
 ## 📝 Why I Built This
 
 I frequently needed to generate QR codes for sharing WiFi passwords, contact info, and URLs. Most online tools are bloated with ads, track your data, or require sign-ups. **QR Forge** is fast, private, and free — everything runs in your browser.
